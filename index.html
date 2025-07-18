@@ -1,32 +1,167 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Desarrollo Hacker</title>
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scripts, Hacks & Bots a Pedido</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #0f0f0f;
+      color: #00ff99;
+      font-family: 'Orbitron', monospace;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      animation: slideIn 1s ease-out forwards;
+      position: relative;
+      z-index: 2;
+    }
+    h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 10px #00ff99;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px;
+      position: relative;
+      z-index: 2;
+    }
+    .card {
+      background: #121212;
+      border: 2px solid #00ff99;
+      border-radius: 15px;
+      padding: 30px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 255, 153, 0.4);
+      transition: transform 0.4s ease;
+      animation: fadeIn 2s ease-out;
+    }
+    .card:hover {
+      transform: scale(1.08);
+    }
+    .card button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #00ff99;
+      border: none;
+      border-radius: 10px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .card button:hover {
+      background: #00cc77;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #888;
+      position: relative;
+      z-index: 2;
+    }
+    canvas#particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="matrix-bg"></div>
-    <div class="container">
-        <h1 class="glitch-text">Desarrollo personalizado de Bots, Scripts y Sitios Web</h1>
-        <div class="services">
-            <div class="service-card" onclick="window.location.href='https://wa.me/5491128348399?text=Hola!%20Estoy%20interesado%20en%20un%20desarrollo%20a%20medida.%20Contame%20qué%20necesitás%20y%20te%20ayudo.'">
-                <h2>🤖 Bots personalizados</h2>
-                <p>Mandame un WhatsApp con lo que necesitás.</p>
-            </div>
-            <div class="service-card" onclick="window.location.href='https://wa.me/5491128348399?text=Hola!%20Estoy%20interesado%20en%20un%20desarrollo%20a%20medida.%20Contame%20qué%20necesitás%20y%20te%20ayudo.'">
-                <h2>💻 Scripts en Python o Bash</h2>
-                <p>Contame tu idea por WhatsApp y lo hacemos.</p>
-            </div>
-            <div class="service-card" onclick="window.location.href='https://wa.me/5491128348399?text=Hola!%20Estoy%20interesado%20en%20un%20desarrollo%20a%20medida.%20Contame%20qué%20necesitás%20y%20te%20ayudo.'">
-                <h2>🌐 Páginas web profesionales</h2>
-                <p>Decime qué tipo de web buscás por WhatsApp.</p>
-            </div>
-        </div>
-        <p class="footer">Automatizá tu mundo. Protegé tu código. Construí desde la raíz.</p>
+  <canvas id="particles-js"></canvas>
+
+  <header>
+    <h1>Scripts, Hacks & Bots a Pedido</h1>
+    <p>Hechos a medida. Entregas rápidas. Totalmente personalizados.</p>
+  </header>
+
+  <section class="services">
+    <div class="card">
+      <h2>🔧 Script Personalizado</h2>
+      <p>Automatizá tareas con un script hecho especialmente para vos.</p>
+      <button onclick="openWhatsapp('Script personalizado')">Encargar</button>
     </div>
-    <a class="whatsapp-button" href="https://wa.me/5491128348399?text=Hola!%20Estoy%20interesado%20en%20un%20desarrollo%20a%20medida.%20Contame%20qué%20necesitás%20y%20te%20ayudo." target="_blank">💬</a>
+
+    <div class="card">
+      <h2>🤖 Bot Programado</h2>
+      <p>Desde bots de Instagram hasta automatización de tareas complejas.</p>
+      <button onclick="openWhatsapp('Bot a pedido')">Encargar</button>
+    </div>
+
+    <div class="card">
+      <h2>💻 Hack Simulado</h2>
+      <p>Simulaciones educativas, pruebas de concepto y entornos controlados.</p>
+      <button onclick="openWhatsapp('Hack simulado')">Encargar</button>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 - Creado para clientes que buscan automatizar y aprender.
+  </footer>
+
+  <script>
+    function openWhatsapp(servicio) {
+      const mensaje = encodeURIComponent("Hola, quiero encargar: " + servicio);
+      window.open("https://wa.me/5491128348399?text=" + mensaje, '_blank');
+    }
+  </script>
+
+  <!-- Partículas animadas de fondo -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.3/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("particles-js", {
+      background: {
+        color: "#0f0f0f"
+      },
+      fpsLimit: 60,
+      particles: {
+        color: { value: "#00ff99" },
+        links: {
+          color: "#00ff99",
+          distance: 150,
+          enable: true,
+          opacity: 0.5,
+          width: 1
+        },
+        collisions: { enable: true },
+        move: {
+          direction: "none",
+          enable: true,
+          outModes: "bounce",
+          random: false,
+          speed: 1,
+          straight: false
+        },
+        number: {
+          density: { enable: true, area: 800 },
+          value: 80
+        },
+        opacity: { value: 0.5 },
+        shape: { type: "circle" },
+        size: { value: { min: 1, max: 5 } }
+      },
+      detectRetina: true
+    });
+  </script>
 </body>
 </html>
